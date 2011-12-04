@@ -1,5 +1,24 @@
 ##############################################################
 
+sanguino.name=Sanguino 644P
+sanguino.upload.protocol=arduino
+sanguino.upload.maximum_size=63488
+sanguino.upload.speed=38400
+sanguino.bootloader.low_fuses=0xff
+sanguino.bootloader.high_fuses=0xdc
+sanguino.bootloader.extended_fuses=0xfd
+sanguino.bootloader.path=sanguino
+sanguino.bootloader.file=ATmegaBOOT_644P.hex
+sanguino.bootloader.unlock_bits=0x3F
+sanguino.bootloader.lock_bits=0x0F
+sanguino.build.mcu=atmega644p
+sanguino.build.f_cpu=16000000L
+#sanguino.build.core=arduino:arduino
+sanguino.build.core=standard
+sanguino.build.variant=sanguino
+
+##############################################################
+
 mighty.name=Mighty 1284p 16MHz
 mighty.upload.protocol=stk500v1
 mighty.upload.maximum_size=129024
