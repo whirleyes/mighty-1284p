@@ -1,6 +1,6 @@
 ##############################################################
 
-sanguino.name=Sanguino 644P
+sanguino.name=Sanguino 644p 16Mhz
 sanguino.upload.protocol=arduino
 sanguino.upload.maximum_size=63488
 sanguino.upload.speed=38400

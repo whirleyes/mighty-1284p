@@ -17,8 +17,8 @@
 //       PWM (D 3) PB3  4|        |37  PA3 (AI 3 / D28)
 //    PWM/SS (D 4) PB4  5|        |36  PA4 (AI 4 / D27)
 //      MOSI (D 5) PB5  6|        |35  PA5 (AI 5 / D26)
-//  PWM/MISO (D 6) PB6  7|        |34  PA6 (AI 6 / D25)
-//   PWM/SCK (D 7) PB7  8|        |33  PA7 (AI 7 / D24)
+//      MISO (D 6) PB6  7|        |34  PA6 (AI 6 / D25)
+//       SCK (D 7) PB7  8|        |33  PA7 (AI 7 / D24)
 //                 RST  9|        |32  AREF
 //                 VCC 10|        |31  GND 
 //                 GND 11|        |30  AVCC
@@ -38,14 +38,13 @@
    PCINT15-8: D7-0  : bit 1
    PCINT31-24: D15-8  : bit 3
    PCINT23-16: D23-16 : bit 2
-   PCINT7-0: D31-24   : bit 0
+   PCINT7-0: D24-31   : bit 0
    */
 
 #define NUM_DIGITAL_PINS            31
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 24 : -1)
-
-#define digitalPinHasPWM(p)         ((p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
+#define digitalPinHasPWM(p)         ((p) == 3 || (p) == 4 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
 
 static const uint8_t SS   = 4;
 static const uint8_t MOSI = 5;
@@ -56,14 +55,14 @@ static const uint8_t SDA = 17;
 static const uint8_t SCL = 16;
 static const uint8_t LED = 0;
 
-static const uint8_t A0 = 24;
-static const uint8_t A1 = 25;
-static const uint8_t A2 = 26;
-static const uint8_t A3 = 27;
-static const uint8_t A4 = 28;
-static const uint8_t A5 = 29;
-static const uint8_t A6 = 30;
-static const uint8_t A7 = 31;
+static const uint8_t A0 = 31;
+static const uint8_t A1 = 30;
+static const uint8_t A2 = 29;
+static const uint8_t A3 = 28;
+static const uint8_t A4 = 27;
+static const uint8_t A5 = 26;
+static const uint8_t A6 = 25;
+static const uint8_t A7 = 24;
 
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) (((p) <= 7) ? 1 : (((p) <= 15) ? 3 : (((p) <= 23) ? 2 : 0)))
@@ -187,8 +186,8 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	TIMER0A,     	/* 3  - PB3 */
 	TIMER0B, 	    /* 4  - PB4 */
 	NOT_ON_TIMER, 	/* 5  - PB5 */
-	TIMER3A, 	    /* 6  - PB6 */
-	TIMER3B,    	/* 7  - PB7 */
+	NOT_ON_TIMER,	/* 6  - PB6 */
+	NOT_ON_TIMER,   /* 7  - PB7 */
 	NOT_ON_TIMER, 	/* 8  - PD0 */
 	NOT_ON_TIMER, 	/* 9  - PD1 */
 	NOT_ON_TIMER, 	/* 10 - PD2 */
